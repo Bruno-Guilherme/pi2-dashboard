@@ -25,4 +25,4 @@ Presença de Acessibilidade nas escolas do Brasil, filtrada por região, zona de
 ## Como Executar o Projeto
 Acessando o site do vercel - servidor na nuvem - você consegue visualizar informações numericas sobre as escolas que possuem dados sobre acessibilidade. Agrupadas por regiões e também em todo território do Brasil.
 Logo em seguida, você pode realizar a leitura sobre a quantidade de escolas x o tipo de dependencia da escola, se ela é Municipal, Estadual, Federal ou privada.
-Aleém disse há outro gráfico que indica quantos % dessas escolas estão localizadas em ambientes urbanos ou rural.
+Além disso há outro gráfico que indica quantos % dessas escolas estão localizadas em ambientes urbanos ou rural.
