@@ -5,27 +5,27 @@ const headers = {
 };
 const content_type = { "Content-Type": "application/json" };
 
-const selectCountAll = () => {
+const selectCountAll = async () => {
   const params = new URLSearchParams({
     count: 1,
   });
 
-  fetch(`${url}?${params.toString()}`, {
-    method: "GET",
-    headers: headers,
-  })
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-      return response.json();
-    })
-    .then((data) => {
-      console.log("Response:", data);
-    })
-    .catch((error) => {
-      console.error("There was a problem with the fetch operation:", error);
+  try {
+    const resposta = await fetch(`${url}?${params.toString()}`, {
+      method: "GET",
+      headers: headers,
     });
+
+    if (resposta.ok) {
+      const data = await resposta.json();
+
+      return data.count;
+    } else {
+      throw new Error("Network response was not ok");
+    }
+  } catch (error) {
+    console.log(error)
+  }
 };
 
 
@@ -33,7 +33,7 @@ const selecTCount = async (regiao) => {
   const params = new URLSearchParams({
     count: 1,
     where: JSON.stringify({
-      regiao: {"$regex" : regiao, "$options": "i" },
+      regiao: { "$regex": regiao, "$options": "i" },
     }),
   });
 
@@ -42,19 +42,19 @@ const selecTCount = async (regiao) => {
       method: "GET",
       headers: headers,
     })
-  
+
     if (resposta.ok) {
       const data = await resposta.json();
-  
+
       console.log(`Contagem para ${regiao}:`, data.count);
       return data.count;
     } else {
       console.log("Erro resposta.")
     }
   } catch (error) {
-    console.log("Erro: "+ error)
+    console.log("Erro: " + error)
   }
 
 };
 
-export {selectCountAll, selecTCount}
+export { selectCountAll, selecTCount }
