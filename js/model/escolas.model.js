@@ -29,11 +29,14 @@ const selectCountAll = async () => {
 };
 
 
-const selecTCount = async (regiao) => {
+const selecTCount = async (reg) => {
+  // SELECIONA A QUANTIDADE DE CADA LINHA POR REGIÃO
+  // SELECT COUNT(regiao) WHERE regiao ILIKES reg;
+
   const params = new URLSearchParams({
     count: 1,
     where: JSON.stringify({
-      regiao: { "$regex": regiao, "$options": "i" },
+      regiao: { "$regex": reg, "$options": "i" },
     }),
   });
 
@@ -46,7 +49,7 @@ const selecTCount = async (regiao) => {
     if (resposta.ok) {
       const data = await resposta.json();
 
-      console.log(`Contagem para ${regiao}:`, data.count);
+      //console.log(`Contagem para ${reg}:`, data.count);
       return data.count;
     } else {
       console.log("Erro resposta.")
@@ -57,4 +60,33 @@ const selecTCount = async (regiao) => {
 
 };
 
-export { selectCountAll, selecTCount }
+const selectDependencias = async (dep) => {
+  const params = new URLSearchParams({
+    count: 1,
+    where: JSON.stringify({
+      dependencia: dep,
+    }),
+  });
+
+  try {
+    const resposta = await fetch(`${url}?${params.toString()}`, {
+      method: "GET",
+      headers: headers,
+    });
+
+    if (resposta.ok) {
+      const data = await resposta.json();
+      return data.count;
+    } else {
+      // Se a resposta não estiver OK, lançar um erro
+      throw new Error("A solicitação não foi bem-sucedida. Código de status: " + resposta.status);
+    }
+  } catch (error) {
+    // Rejeitar explicitamente a Promessa em caso de erro
+    console.error("Deu erro: " + error);
+    throw error;
+  }
+}
+
+
+export { selectCountAll, selecTCount, selectDependencias }

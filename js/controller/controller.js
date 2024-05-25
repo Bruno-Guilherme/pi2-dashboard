@@ -1,6 +1,7 @@
 import { 
     selecTCount,
     selectCountAll,
+    selectDependencias,
 } from "../model/escolas.model.js";
 
 const getRegioes = async () => {
@@ -22,4 +23,21 @@ const getRegioes = async () => {
     brasil.innerHTML = teste;
 }
 
+const getDependencias = async () => {
+    const dependencias = ['federal', 'estadual', 'municipal', 'privada'];
+    let data = [];
+
+    for (let i = 0; i < dependencias.length; i++) {
+        data[i] = await selectDependencias(i + 1);
+    }
+
+    //console.log(data)
+
+    return data;
+
+}
+
 getRegioes()
+const teste = getDependencias();
+
+export { getDependencias }
