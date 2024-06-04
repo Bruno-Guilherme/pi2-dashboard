@@ -168,12 +168,15 @@ var optionDonut = {
   labels: ['Urbana', 'Rural'],
   legend: {
     labels: {
-      colors: "#FFFFFF"
+      colors: "#FFFFFF",
+      horizontalAlign: 'right', // Alinha os rótulos à direita
     },
-    position: 'left',
-    offsetY: 80
+    verticalAlign: 'middle', // Alinha os rótulos verticalmente ao centro
+    
   }
 };
+
+
 
 var donut = new ApexCharts(
   document.querySelector("#donut"),
