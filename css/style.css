@@ -95,7 +95,7 @@ ul li {
 
 main {
   grid-area: main;
-  padding: 0 5rem;
+  padding: 5rem;
 }
 
 main > h2 {

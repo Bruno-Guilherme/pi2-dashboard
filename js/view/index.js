@@ -5,6 +5,8 @@ import { render } from './graphs.js';
 const abrirSidebar = () => {
   const aside = document.querySelector("aside");
 
+  console.log("Abriu")
+
   // Verifica se a barra lateral está atualmente visível ou oculta
   if (aside.style.display === 'none' || aside.style.display === '') {
     // Se estiver oculta, torna-a visível

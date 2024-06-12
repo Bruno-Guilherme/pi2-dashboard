@@ -104,7 +104,6 @@ const selectLocalizacao = async (tipo) => {
 
     if (resposta.ok) {
       const data = await resposta.json();
-      console.log("Localizacao" + data)
       return data.count;
 
     } else {

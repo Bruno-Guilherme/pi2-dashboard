@@ -138,12 +138,6 @@ const render = () => {
                                 size: '65%',
                             }
                         },
-                        stroke: {
-                            colors: undefined
-                        }
-                    },
-                    dataLabels: {
-                        enabled: false,
                     },
                     tooltip: {
                         shared: true,
