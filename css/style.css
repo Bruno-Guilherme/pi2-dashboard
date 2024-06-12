@@ -212,3 +212,48 @@ main > h2 {
     display: flex;
   } 
 }
+
+.sidebar-list .button {
+  display: flex;
+  align-items: center;
+  padding-left: 0px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.sidebar-list .button:hover {
+  background-color: #13111172;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.sidebar-list .button span {
+  margin-right: 5px;
+}
+
+.maior-fonte {
+  font-size: 2rem; /* Ajuste conforme necessário */
+  padding-left: 30px;
+  
+}
+
+.titulo-sobre {
+  font-size: 3rem;
+  padding-bottom: 1px;
+  padding-top: 30px;
+  padding-right:30px;
+  padding-left: 30px;
+  text-decoration: underline;
+}
+
+.normal {
+  font-size: 15px;
+  padding-top: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
+  
+}
+
+.paragrafo {
+  padding-bottom: 1px;
+}
