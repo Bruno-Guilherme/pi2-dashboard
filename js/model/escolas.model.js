@@ -88,5 +88,33 @@ const selectDependencias = async (dep) => {
   }
 }
 
+const selectLocalizacao = async (tipo) => {
+  const params = new URLSearchParams({
+    count: 1,
+    where: JSON.stringify({
+      localizacao: tipo,
+    }),
+  });
 
-export { selectCountAll, selecTCount, selectDependencias }
+  try {
+    const resposta = await fetch(`${url}?${params.toString()}`, {
+      method: "GET",
+      headers: headers,
+    });
+
+    if (resposta.ok) {
+      const data = await resposta.json();
+      console.log("Localizacao" + data)
+      return data.count;
+
+    } else {
+      throw new Error("A solicitação não foi bem-sucedida. Código de status: " + resposta.status);
+
+    }
+  } catch (error) {
+    console.error("Deu erro: " + error);
+    throw error;
+  }
+}
+
+export { selectCountAll, selecTCount, selectDependencias, selectLocalizacao }

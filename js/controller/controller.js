@@ -2,6 +2,7 @@ import {
     selecTCount,
     selectCountAll,
     selectDependencias,
+    selectLocalizacao,
 } from "../model/escolas.model.js";
 
 const getRegioes = async () => {
@@ -37,7 +38,16 @@ const getDependencias = async () => {
 
 }
 
-getRegioes()
-const teste = getDependencias();
+const getLocalizacao = async () => {
+    const localizacao = ['urbana', 'rural'];
+    const data = [];
 
-export { getDependencias }
+    for (let i = 0; i < localizacao.length; i++) {
+        data[i] = await selectLocalizacao(i + 1);
+    }
+
+    return data;
+}
+
+
+export { getDependencias, getRegioes, getLocalizacao }
