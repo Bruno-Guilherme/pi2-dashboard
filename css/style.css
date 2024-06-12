@@ -64,7 +64,7 @@ header {
 /* ====== ASIDE ====== */
 
 aside {
-  display:block;
+  display:none;
 
   position: absolute;
   top: 0;
@@ -197,9 +197,7 @@ main > h2 {
   .header {
     justify-content: end;
   }
-  #close {
-    display: none;
-  }
+  
   .main-cards {
     justify-content: center
   }
@@ -216,10 +214,14 @@ main > h2 {
     grid-area: aside;
     display: block;
     font-size: 18px;
+    position: static;
   }
   .main-cards {
     display: flex;
   } 
+  #fechar-side {
+    display: none;
+  }
 }
 
 /* .sidebar-list .button {
