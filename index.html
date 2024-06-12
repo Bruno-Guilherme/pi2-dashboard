@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -23,7 +23,8 @@
     <script src="https://cdn.jsdelivr.net/npm/apexcharts" defer></script>
 
     <!-- Manipulação do DOM -->
-    <script src="./js/view/index.js" defer></script>
+    <script src="./js/view/index.js" type="module" defer></script>
+    <script src="./js/controller/controller.js" type="module" defer></script>
   </head>
   <body>
     <div class="container-grid">
@@ -41,12 +42,12 @@
           <h1>DashBoard</h1>
           <span class="material-icons-outlined" id="close" onclick="fecharSidebar()">close</span>
         </div>
-        <hr>
+
         <nav>
           <ul class="sidebar-list">
             <li>
-              Dependência
               <span class="material-icons-outlined">home_work</span>
+              Dependência
             </li>
             <li>
               <a href="sobre.html" class="button">
@@ -59,47 +60,48 @@
       </aside>
     
       <main class="main-container">
+        <h2>Quantidade de Escolas Questionadas por Região</h2>
         <div class="main-cards">
           <div class="card">
             <div class="card-inner">
               <h3>NORTE</h3>
             </div>
-            <h1>240</h1>
+            <h1 id="norte-val">240</h1>
           </div>
     
           <div class="card">
             <div class="card-inner">
               <h3>NORDESTE</h3>
             </div>
-            <h1>240</h1>
+            <h1 id="nordeste-val">240</h1>
           </div>
     
           <div class="card">
             <div class="card-inner">
               <h3>CENTRO OESTE</h3>
             </div>
-            <h1>240</h1>
+            <h1 id="centro-val">240</h1>
           </div>
     
           <div class="card">
             <div class="card-inner">
               <h3>SUDESTE</h3>
             </div>
-            <h1>240</h1>
+            <h1 id="sudeste-val">240</h1>
           </div>
     
           <div class="card">
             <div class="card-inner">
               <h3>SUL</h3>
             </div>
-            <h1>240</h1>
+            <h1 id="sul-val">240</h1>
           </div>
     
           <div class="card">
             <div class="card-inner">
               <h3>BRASIL</h3>
             </div>
-            <h1>240</h1>
+            <h1 id="brasil-val">240</h1>
           </div>
         </div>
     
@@ -110,6 +112,7 @@
           </div>
     
           <div class="charts-card">
+            <h2>Zona de Localização</h2>
             <div id="donut"></div>
           </div>
         </div>
